@@ -2,16 +2,9 @@ import React from "react"
 import Tree  from "react-json-tree"
 import cx    from "classnames"
 
-// var page  = 1
-// var rev   = 1
-// var layer = "public"
-// var docid = "e5a9fcea-4426-4ae5-b8eb-38650858d3c1"
-// var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJodHRwOi8vZHJhd2JvYXJkLmNvbS9pZGVudGl0eS9jbGFpbXMvaWQiOiI1MWUzZmRlNDM4NzU2YWFiZjlkNzMyZjRjMTc1ZmJjMWYyNmJjOWI4YTNkOGUyNWUxYzhjNGRmZTVlYWQ3OTJkIiwiZW1haWwiOiJqYW1lc0Biam9ya21hbi5jYSIsImh0dHA6Ly9kcmF3Ym9hcmQuY29tL2lkZW50aXR5L2NsYWltcy9kaXNwbGF5bmFtZSI6IiAiLCJpc3MiOiJhdXRoLmRyYXdib2FyZC5jb20iLCJhdWQiOiJodHRwczovL2RldmFwaS5kcmF3Ym9hcmQubG9jYWwiLCJleHAiOjE0NzMzNTg3NjgsIm5iZiI6MTQ3MzMxNTU2OH0.to3QUH0eomFR04sMamR40wbCG2bPerkt4jvE2ylZMGY"
+// TODO make better
 
 var INIT_URL = "ws://echo.websocket.org"
-// var INIT_URL = "ws://127.0.0.1:10080/Annots?documentId=2d48da32-019f-49b8-9f35-a6940d366812&page=1&rev=1&layer=revision&accessToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJodHRwOi8vZHJhd2JvYXJkLmNvbS9pZGVudGl0eS9jbGFpbXMvaWQiOiJlODYzNGVhNzhjNjM1NTU2N2MzYThjZDY1NjU1NzIxYmUzMzQ1YjNlMjg1ZDg2ZmVhODUxOThiNGIxY2M0ZjRkIiwiZW1haWwiOiJidWxsY2xpcHRlc3QrNjM2MDg5MzQyMTE5NDQzNTY4ODk1NzM5QGRyYXdib2FyZC5jb20iLCJodHRwOi8vZHJhd2JvYXJkLmNvbS9pZGVudGl0eS9jbGFpbXMvZGlzcGxheW5hbWUiOiIgIiwiaXNzIjoiYXV0aC5kcmF3Ym9hcmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9kZXZhcGkuZHJhd2JvYXJkLmxvY2FsIiwiZXhwIjoxNDczMzQ0NzY0LCJuYmYiOjE0NzMzMDE1NjR9.Tk9mN6y22om-5JOlax8lJYvbTBPQZYCVx3K9LECH-IU"
-// var INIT_URL = "wss://devapi.drawboard.com:10443/Annots?&documentid=1c32695c-a81b-4225-972e-1835fbbef104&page=1&rev=1&layer=public&accessToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJodHRwOi8vZHJhd2JvYXJkLmNvbS9pZGVudGl0eS9jbGFpbXMvaWQiOiJmNzMxMDYzYWU3ZmE2N2I4NzY2YjYwNzcyMDFkZmE2M2RjYmRmNGJlM2MyNTg2YzlkOTVlZjgzNWFkMjIxNjA5IiwiZW1haWwiOiJidWxsY2xpcHRlc3QrNjM2MDg5NDM0NzQ5Mzk0NjAxMjgzNjEzQGRyYXdib2FyZC5jb20iLCJodHRwOi8vZHJhd2JvYXJkLmNvbS9pZGVudGl0eS9jbGFpbXMvZGlzcGxheW5hbWUiOiIgIiwiaXNzIjoiYXV0aC5kcmF3Ym9hcmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9kZXZhcGkuZHJhd2JvYXJkLmxvY2FsIiwiZXhwIjoxNDczMzU0MDA5LCJuYmYiOjE0NzMzMTA4MDl9.Bl0TmnWbYbcDh4lcoeE1RP4oqyZ09ysVX8fEEXiqqNY"
-// var INIT_URL = `wss://devapi.drawboard.com:10443/Annots?&documentid=${ docid }&page=${ page }&rev=${ rev }&layer=${ layer }&accessToken=${ token }`
 
 const theme = {
   scheme: 'monokai',
@@ -39,8 +32,6 @@ var guid = () =>
 
 var Title = () =>
   <h2 className="p-t-lg">Not Good Socket Debugger <small><em style={{ fontFamily: "georgia" }}><a href="https://twitter.com/cccc00">By Orodio</a></em></small></h2>
-
-// <Tree data={{ foo:"bar", baz:{ foo:"bar", bar: [1, 2, 3 ]}}} theme={ theme }/>
 
 const Row = (props) => {
   return <Tree data={JSON.parse(JSON.stringify(props))} theme={ theme }/>
